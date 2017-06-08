@@ -6,7 +6,9 @@
           <br />
           <div class="alert alert-info"> <%= notice %> </div>
       <% end %>
+      <li class="active"><%= link_to "Выйти", session_url(current_driver), :method => "delete" %></li>
 
+      <br><br>
 
       <% if !@orders.blank? %>
             <tbody>
@@ -19,6 +21,7 @@
       <% else %>
           <div class="alert alert-info"> Нет заявок.</div>
       <% end %>
+
     </div>
   </div>
 </div>
