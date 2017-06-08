@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+
+      <% if notice %>
+          <br />
+          <div class="alert alert-info"> <%= notice %> </div>
+      <% end %>
+
+
+      <% if !@orders.blank? %>
+            <tbody>
+            <% @orders.each do |order| %>
+                <%= link_to order.shop, order, class:'driver_btn', role: 'button' %>
+
+            <% end %>
+            </tbody>
+          </table>
+      <% else %>
+          <div class="alert alert-info"> Нет заявок.</div>
+      <% end %>
+    </div>
+  </div>
+</div>

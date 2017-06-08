@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <br>
+      <%= link_to 'Назад', mobile_index_path, class: 'btn btn-default btn-lg', role: 'button' %>
+      <br> <br>
+      <div class="jumbotron">
+        <h4><%= @order.shop %></h4>
+        <h4><%= @order.address %></h4>
+        <h4>Отдать чистой воды: <%= @order.pure_water %></h4>
+        <h4>Отдать для отработки: <%= @order.dirty_bottle %></h4>
+        <br>
+        <%= form_for @order, url: order_index_path do |form| %>
+            <%= form.text_field :empty_bottle_back, class: "form-control", placeholder: "Сколько забрал бутылок с чистой водой", maxlength: 10 %>
+            <br>
+            <%= form.text_field :dirty_bottle_back, class: "form-control", placeholder: "Сколько бутылок с чистой водой", maxlength: 10 %>
+            <br>
+            <%= submit_tag 'Отгрузил', class: 'btn btn-primary btn-lg' %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

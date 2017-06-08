@@ -1,0 +1,19 @@
+<%= render('patrial/navbar', menu: {active: "склад"}) %>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+
+      <% if notice %>
+          <br />
+          <div class="alert alert-info"> <%= notice %> </div>
+      <% end %>
+
+      <h4>Кол-во бутылок с водой: <%= @stock.pure_water %></h4>
+      <h4>Кол-во пустых бутылок для воды: <%= @stock.empty_bottle %></h4>
+      <h4>Кол-во бутылок для отработки: <%= @stock.dirty_bottle %></h4>
+      <br>
+      <%= link_to 'Поставить на приход', new_stock_path, class: 'btn btn-default btn', role: 'button' %>
+    </div>
+  </div>
+</div>

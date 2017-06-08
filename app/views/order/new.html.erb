@@ -1,0 +1,32 @@
+<%= render('patrial/navbar', menu: {active: "новая"}) %>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-8">
+
+
+      <% if @order.errors.any? %>
+          <div id="error_explanation">
+
+            <% @order.errors.full_messages.each do |msg| %>
+                <div class="alert alert-warning" role="alert"><%= msg %></div>
+            <% end %>
+          </div>
+      <% end %>
+
+      <%= form_for @order, url: order_index_path do |form| %>
+          <br/>
+          <%= form.select(:shop, @shops.collect {|a| [a.name, a.id]}, {}, { class: 'form-control' }) -%>
+          <br/>
+          <%= form.text_field :pure_water, class: "form-control", placeholder: "Сколько бутылок с чистой водой", maxlength: 10 %>
+          <br/>
+
+          <%= form.text_field :dirty_bottle, class: "form-control", placeholder: "Сколько бутылок для отработки", maxlength: 10 %>
+          <br/>
+          <%= form.select(:driver, @drivers.collect {|a| [a.name, a.id]}, {}, { class: 'form-control' }) -%>
+          <br/>
+          <%= form.submit 'Добавить', class: "btn btn-primary" %> <%= link_to 'Отмена', order_index_path, class: 'btn btn-default btn', role: 'button' %>
+      <% end %>
+    </div>
+  </div>
+</div>
