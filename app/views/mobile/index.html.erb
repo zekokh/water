@@ -6,7 +6,7 @@
           <br />
           <div class="alert alert-info"> <%= notice %> </div>
       <% end %>
-      <li class="active"><%= link_to "Выйти", session_url(current_driver), :method => "delete" %></li>
+   <%= link_to "Выйти", login_url(current_driver), class: 'driver_btn_exit', :method => "delete" %>
 
       <br><br>
 

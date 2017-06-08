@@ -16,7 +16,7 @@ class LoginController < ApplicationController
     end
 
     def destroy
-      session[:user_id] = nil
+      session[:driver_id] = nil
       redirect_to new_login_path, notice: "Сеанс работы завершен!"
     end
 
