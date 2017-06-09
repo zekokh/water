@@ -11,14 +11,13 @@
       <br><br>
 
       <% if !@orders.blank? %>
-          <tbody>
+
           <% @orders.each do |order| %>
               <%= link_to order.shop, order, class: 'driver_btn', role: 'button' %>
               <%= order.address %>
               <h5>Вода: <%= order.pure_water %> | Отработка: <%= order.dirty_bottle %></h5>
+              <hr>
           <% end %>
-          </tbody>
-          </table>
       <% else %>
           <div class="alert alert-info"> Нет заявок.</div>
       <% end %>
