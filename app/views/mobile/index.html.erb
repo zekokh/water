@@ -3,20 +3,21 @@
     <div class="col-md-12">
 
       <% if notice %>
-          <br />
+          <br/>
           <div class="alert alert-info"> <%= notice %> </div>
       <% end %>
-   <%= link_to "Выйти", login_url(current_driver), class: 'driver_btn_exit', :method => "delete" %>
+      <%= link_to "Выйти", login_url(current_driver), class: 'driver_btn_exit', :method => "delete" %>
 
       <br><br>
 
       <% if !@orders.blank? %>
-            <tbody>
-            <% @orders.each do |order| %>
-                <%= link_to order.shop, order, class:'driver_btn', role: 'button' %>
-
-            <% end %>
-            </tbody>
+          <tbody>
+          <% @orders.each do |order| %>
+              <%= link_to order.shop, order, class: 'driver_btn', role: 'button' %>
+              <%= order.address %>
+              <h5>Вода: <%= order.pure_water %> | Отработка: <%= order.dirty_bottle %></h5>
+          <% end %>
+          </tbody>
           </table>
       <% else %>
           <div class="alert alert-info"> Нет заявок.</div>
